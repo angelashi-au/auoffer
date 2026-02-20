@@ -7,8 +7,8 @@
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <style>
         :root {
-            --primary-color: #0f204b; /* 深蓝色调，适合教育行业 */
-            --accent-color: #d4af37;  /* 金色点缀 */
+            --primary-color: #0f204b; 
+            --accent-color: #d4af37;  
         }
         body {
             font-family: 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -29,114 +29,56 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             box-sizing: border-box;
         }
-        h2 {
-            text-align: center;
-            color: var(--primary-color);
-            margin-bottom: 25px;
-            font-size: 22px;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #555;
-            font-size: 14px;
-            font-weight: bold;
-        }
+        h2 { text-align: center; color: var(--primary-color); margin-bottom: 25px; font-size: 22px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; color: #555; font-size: 14px; font-weight: bold; }
         input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            box-sizing: border-box;
-            outline: none;
-            transition: border-color 0.3s;
+            width: 100%; padding: 12px 15px; border: 1px solid #ddd;
+            border-radius: 8px; font-size: 16px; box-sizing: border-box; outline: none;
         }
-        input:focus {
-            border-color: var(--primary-color);
-        }
+        input:focus { border-color: var(--primary-color); }
         button {
-            width: 100%;
-            background-color: var(--primary-color);
-            color: #fff;
-            border: none;
-            padding: 15px;
-            font-size: 18px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 10px;
-            transition: background-color 0.3s;
-        }
-        button:active {
-            background-color: #0a1532;
+            width: 100%; background-color: var(--primary-color); color: #fff;
+            border: none; padding: 15px; font-size: 18px; border-radius: 8px;
+            cursor: pointer; font-weight: bold; margin-top: 10px;
         }
         
-        /* Offer 卡片样式 */
-        #offer-wrapper {
-            display: none;
-            text-align: center;
-        }
+        /* Offer 卡片样式更新 */
+        #offer-wrapper { display: none; text-align: center; }
         #offer-card {
             background: linear-gradient(135deg, var(--primary-color) 0%, #1a3675 100%);
-            color: #fff;
-            padding: 40px 20px;
-            border-radius: 12px;
-            position: relative;
-            overflow: hidden;
-            box-sizing: border-box;
+            color: #fff; padding: 40px 20px; border-radius: 12px;
+            position: relative; overflow: hidden; box-sizing: border-box;
             border: 4px solid var(--accent-color);
         }
-        .offer-title {
-            color: var(--accent-color);
-            font-size: 28px;
-            font-weight: 900;
-            letter-spacing: 2px;
-            margin: 0 0 20px 0;
-            text-transform: uppercase;
+        
+        /* 新增 Logo 样式 */
+        .school-logo-wrapper {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px auto;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid var(--accent-color);
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
-        .student-name {
-            font-size: 24px;
-            font-weight: bold;
-            margin: 15px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-            display: inline-block;
-            padding-bottom: 5px;
+        .school-logo-wrapper img {
+            width: 70%;
+            height: 70%;
+            object-fit: contain;
         }
-        .congrats-text {
-            font-size: 16px;
-            line-height: 1.5;
-            margin: 15px 0;
-            opacity: 0.9;
-        }
-        .dream-school {
-            font-size: 26px;
-            color: var(--accent-color);
-            font-weight: bold;
-            margin: 20px 0;
-        }
-        .brand-footer {
-            margin-top: 30px;
-            font-size: 12px;
-            opacity: 0.7;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            padding-top: 15px;
-        }
-        #instruction {
-            color: #e74c3c;
-            font-weight: bold;
-            margin-top: 20px;
-            font-size: 16px;
-        }
-        .loading {
-            color: #666;
-            margin-top: 15px;
-            font-size: 14px;
-            display: none;
-        }
+
+        .offer-title { color: var(--accent-color); font-size: 28px; font-weight: 900; margin: 0 0 10px 0; }
+        .student-name { font-size: 24px; font-weight: bold; margin: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.3); display: inline-block; padding-bottom: 5px; }
+        .congrats-text { font-size: 16px; line-height: 1.5; margin: 15px 0; opacity: 0.9; }
+        .dream-school { font-size: 26px; color: var(--accent-color); font-weight: bold; margin: 10px 0 20px 0; }
+        .brand-footer { margin-top: 30px; font-size: 12px; opacity: 0.7; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px; }
+        #instruction { color: #e74c3c; font-weight: bold; margin-top: 20px; font-size: 16px; }
+        .loading { color: #666; margin-top: 15px; font-size: 14px; display: none; }
     </style>
 </head>
 <body>
@@ -149,7 +91,7 @@
         </div>
         <div class="form-group">
             <label for="phone">手机号码</label>
-            <input type="tel" id="phone" placeholder="请输入手机号用于入档" required maxlength="11">
+            <input type="tel" id="phone" placeholder="请输入手机号" required maxlength="11">
         </div>
         <div class="form-group">
             <label for="school">梦校名称</label>
@@ -163,6 +105,11 @@
         <div id="image-container">
             <div id="offer-card">
                 <h1 class="offer-title">WISH OFFER</h1>
+                
+                <div class="school-logo-wrapper">
+                    <img id="display-logo" src="" alt="School Logo">
+                </div>
+
                 <div class="congrats-text">Congratulations!</div>
                 <div class="student-name" id="display-name"></div>
                 <div class="congrats-text">你已成功获得梦校的青睐，<br>即将开启闪耀的学术之旅：</div>
@@ -176,55 +123,16 @@
     </div>
 
     <script>
-        function generateOffer() {
-            const name = document.getElementById('name').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const school = document.getElementById('school').value.trim();
+        // 【核心库】在这里配置你们常申请的主流名校 Logo
+        // 为了确保能成功生成图片，强烈建议把 Logo 图片转成 Base64 编码，或者确保图片存放在你们自己的服务器上并开启了允许跨域 (CORS)。
+        // 这里我用简单的示例占位符代替。
+        const schoolLogoDict = {
+            "牛津大学": "https://img.icons8.com/color/96/000000/oxford-university.png", // 示例：你可以替换成真实的 Base64
+            "剑桥大学": "https://img.icons8.com/color/96/000000/cambridge.png",
+            "哈佛大学": "https://img.icons8.com/color/96/000000/harvard-university.png",
+            "悉尼大学": "https://img.icons8.com/fluency/96/000000/university.png", // 替换为真实的悉尼大学logo
+            // ... 你可以在这里继续添加上百个你们常推的学校
+        };
 
-            if (!name || !phone || !school) {
-                alert('请完整填写姓名、手机号和梦校信息哦！');
-                return;
-            }
-
-            // 在这里你可以插入一段代码，将 phone, name, school 发送到你的后台数据库进行收集
-            // fetch('你的接口地址', { method: 'POST', body: JSON.stringify({name, phone, school}) })
-
-            // 赋值给 Offer 卡片
-            document.getElementById('display-name').innerText = name;
-            document.getElementById('display-school').innerText = school;
-
-            // 切换 UI
-            document.getElementById('loading-text').style.display = 'block';
-            
-            // 延迟一点点以确保 DOM 更新完毕
-            setTimeout(() => {
-                document.getElementById('form-container').style.display = 'none';
-                document.getElementById('offer-wrapper').style.display = 'block';
-
-                const targetElement = document.getElementById('offer-card');
-                
-                // 使用 html2canvas 生成图片 (scale: 3 保证生成的图片在手机上足够清晰)
-                html2canvas(targetElement, { scale: 3, useCORS: true }).then(canvas => {
-                    const imgData = canvas.toDataURL('image/png');
-                    const imgElement = document.createElement('img');
-                    imgElement.src = imgData;
-                    imgElement.style.width = '100%';
-                    imgElement.style.borderRadius = '12px';
-                    imgElement.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-
-                    // 将原来的 HTML 卡片替换成真正的图片，这样用户就可以长按保存了
-                    const imageContainer = document.getElementById('image-container');
-                    imageContainer.innerHTML = ''; 
-                    imageContainer.appendChild(imgElement);
-
-                    // 显示长按保存提示
-                    document.getElementById('instruction').innerText = "👇 专属 Offer 生成成功！请长按图片保存 👇";
-                }).catch(err => {
-                    alert('图片生成失败，请重试');
-                    console.error(err);
-                });
-            }, 300);
-        }
-    </script>
-</body>
-</html>
+        // 默认 Logo：当用户输入的学校不在上述字典里时，显示这个精美的博士帽图标
+        const defaultLogo = "
